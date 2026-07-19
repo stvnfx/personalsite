@@ -29,7 +29,7 @@
     let timeout: ReturnType<typeof setTimeout>;
 
     function glitchBurst() {
-      const chars = "!@#$%^&*()_+-=[]{}|;':\",./<>?ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789█▓▒░│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌";
+      const chars = "!@#$%^&*()_+-=[]{}|;':\",./<>?ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789█▓▒░│┤╡╖╕╣║╗╝╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╨╤╥╙╘╓╫╪┘┌";
 
       const lines = ascii.textContent?.split("\n") || [];
       if (!lines.length) return;
@@ -90,6 +90,7 @@
     margin-bottom: 1rem;
     user-select: none;
     position: relative;
+    display: inline-block;
   }
   .ascii-art {
     font-family: 'Gohu', monospace;
@@ -100,15 +101,21 @@
     overflow: hidden;
     letter-spacing: 0;
     -webkit-font-smoothing: none;
+    display: block;
   }
   .ascii-glitch-overlay {
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     color: var(--color-accent);
     opacity: 0;
     pointer-events: none;
     text-shadow: 0.5px 0 #cc6666, -0.5px 0 #93ffd7;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
   }
   .fg-white { color: #e0e0e0; }
   .fg-bright-white { color: #ffffff; }
