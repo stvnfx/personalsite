@@ -4,23 +4,84 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  canonical?: string;
 }
 
-const { title, description = "Steven Fourie - Java and DevOps Engineer" } = Astro.props;
+const {
+  title,
+  description = "Steven Fourie - Java and DevOps Engineer based in Breda, Netherlands. Specializing in Spring Boot, Kubernetes, and CI/CD pipelines.",
+  canonical = "https://stvnfx.github.io/personalsite/",
+} = Astro.props;
+
+const siteName = "Steven Fourie";
+const ogImage = `${canonical}og-image.png`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <meta name="generator" content={Astro.generator} />
+
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Steven Fourie" />
+    <meta name="keywords" content="Java developer, DevOps engineer, Spring Boot, Kubernetes, CI/CD, platform engineering, Breda, Netherlands" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#FAF7F2" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonical} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonical} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:creator" content="@stvnfx" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Steven Fourie",
+      "url": canonical,
+      "jobTitle": "Senior Software Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Pinkroccade Local Government"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Breda",
+        "addressCountry": "NL"
+      },
+      "sameAs": [
+        "https://github.com/stvnfx",
+        "https://www.linkedin.com/in/steven-fourie-56719a6b"
+      ],
+      "knowsAbout": ["Java", "Spring Boot", "Kubernetes", "DevOps", "CI/CD", "Platform Engineering"]
+    })} />
   </head>
   <body class="min-h-screen bg-cream">
     <slot />
