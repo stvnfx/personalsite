@@ -1,62 +1,69 @@
 ---
-const lines = [
-  "  ▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄   ▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄ ",
-  " ██████████ ███████████ ███▄ ████ ██████████  ██████████   ███████████   ██████████ ",
-  " ██▀▀▀▀▀█▀ ▀▀▀▀▀▀▀▀▀▀▀ ▀██▀▀▀▀▀▀ ██████████  ██▀▀▀▀▀▀██   ▀▀▀▀▀▀▀▀██▀  ██████████ ",
-  " ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
-  " ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄",
-  "  ▐███████████████▌  ██████████████████████▐██████████████████████████████████████▌",
-  "   ███████████████   ▀███████████████████▌  █████████████████████████████████████ ",
-  "   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
-];
-
-const tagline = "s y s t e m s . d e p l o y m e n t . i n f r a s t r u c t u r e";
 ---
 
 <div class="ascii-hero">
-  <pre
-    id="hero-ascii"
-    data-ascii-text={lines.join("\n")}
-  >
-{lines.join("\n")}
-  </pre>
-  <pre
-    id="hero-ascii-glitch"
-    class="ascii-glitch"
-    aria-hidden="true"
-  >
-{lines.join("\n")}
-  </pre>
+  <div class="ascii-wrap">
+    <img
+      id="hero-ascii"
+      src="/hero-ascii.png"
+      alt="STEVEN FOURIE ASCII art"
+      class="ascii-img"
+    />
+    <div id="hero-ascii-glitch" class="ascii-glitch" aria-hidden="true"></div>
+  </div>
   <p class="tagline">
-    {tagline}
+    s y s t e m s . d e p l o y m e n t . i n f r a s t r u c t u r e
   </p>
 </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const ascii = document.getElementById("hero-ascii") as HTMLPreElement | null;
-    const glitch = document.getElementById("hero-ascii-glitch") as HTMLPreElement | null;
-    if (!ascii || !glitch) return;
+    const img = document.getElementById("hero-ascii") as HTMLImageElement | null;
+    const glitch = document.getElementById("hero-ascii-glitch") as HTMLDivElement | null;
+    if (!img || !glitch) return;
 
     let timeout: ReturnType<typeof setTimeout>;
 
     function glitchBurst() {
       const chars = "!@#$%^&*()_+-=[]{}|;':\",./<>?ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789█▓▒░│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌";
-      const text = ascii.dataset.asciiText || ascii.textContent || "";
-      const lines = text.split("\n");
-      const originalLines = [...lines];
+
+      const width = Math.floor(img.naturalWidth / 6);
+      const height = Math.floor(img.naturalHeight / 11);
+      const lines: string[] = [];
+      for (let y = 0; y < height; y++) {
+        let line = "";
+        for (let x = 0; x < width; x++) {
+          line += chars[Math.floor(Math.random() * chars.length)];
+        }
+        lines.push(line);
+      }
+
+      glitch.textContent = "";
+      const pre = document.createElement("pre");
+      pre.textContent = lines.join("\n");
+      pre.style.cssText = `
+        font-family: monospace;
+        font-size: 11px;
+        line-height: 1;
+        color: var(--color-accent);
+        white-space: pre;
+        -webkit-font-smoothing: none;
+        letter-spacing: 0;
+        text-shadow: 0.5px 0 #cc6666, -0.5px 0 #93ffd7;
+      `;
+      glitch.appendChild(pre);
 
       let frame = 0;
       const maxFrames = 6 + Math.floor(Math.random() * 6);
       const interval = setInterval(() => {
         if (frame >= maxFrames) {
           clearInterval(interval);
+          glitch.innerHTML = "";
           glitch.style.opacity = "0";
-          glitch.textContent = ascii.textContent;
           return;
         }
 
-        const glitchLines = [...originalLines];
+        const glitchLines = [...lines];
         const numZones = 1 + Math.floor(Math.random() * 2);
         for (let z = 0; z < numZones; z++) {
           const row = Math.floor(Math.random() * glitchLines.length);
@@ -72,7 +79,12 @@ const tagline = "s y s t e m s . d e p l o y m e n t . i n f r a s t r u c t u r
           glitchLines[row] = mutated;
         }
 
-        glitch.textContent = glitchLines.join("\n");
+        const pre2 = document.createElement("pre");
+        pre2.textContent = glitchLines.join("\n");
+        pre2.style.cssText = (pre as HTMLPreElement).style.cssText;
+        glitch.innerHTML = "";
+        glitch.appendChild(pre2);
+
         glitch.style.opacity = String(0.3 + Math.random() * 0.5);
 
         if (Math.random() < 0.3) {
@@ -94,28 +106,37 @@ const tagline = "s y s t e m s . d e p l o y m e n t . i n f r a s t r u c t u r
 
 <style>
   .ascii-hero {
-    position: relative;
     margin-bottom: 1rem;
     user-select: none;
   }
-  #hero-ascii, #hero-ascii-glitch {
+  .ascii-wrap {
+    position: relative;
+    display: inline-block;
+  }
+  .ascii-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+  }
+  .ascii-glitch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .ascii-glitch pre {
     font-family: var(--font-mono);
     font-size: 11px;
     line-height: 1;
     color: var(--color-accent);
     white-space: pre;
-    overflow: hidden;
     -webkit-font-smoothing: none;
-    -moz-osx-font-smoothing: unset;
     letter-spacing: 0;
-  }
-  #hero-ascii-glitch {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: var(--color-accent);
-    opacity: 0;
-    pointer-events: none;
     text-shadow: 0.5px 0 #cc6666, -0.5px 0 #93ffd7;
   }
   .tagline {
@@ -126,7 +147,7 @@ const tagline = "s y s t e m s . d e p l o y m e n t . i n f r a s t r u c t u r
     margin-top: 0.25rem;
   }
   @media (max-width: 700px) {
-    #hero-ascii, #hero-ascii-glitch {
+    .ascii-glitch pre {
       font-size: 5.5px;
     }
     .tagline {
