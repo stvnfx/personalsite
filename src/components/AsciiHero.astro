@@ -29,7 +29,7 @@
     let timeout: ReturnType<typeof setTimeout>;
 
     function glitchBurst() {
-      const chars = "!@#$%^&*()_+-=[]{}|;':\",./<>?ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789█▓▒░│┤╡╖╕╣║╗╝╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╨╤╥╙╘╓╫╪┘┌";
+      const chars = "!@#$%^&*()_+-=[]{}|;':\",./<>?ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789█▓▒░│┤╡╢╖╕╣║╗╝╜╛┐┴┬├─┼╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌";
 
       const lines = ascii.textContent?.split("\n") || [];
       if (!lines.length) return;
@@ -41,12 +41,13 @@
         position: absolute;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
+        width: 100%;
+        height: 100%;
         margin: 0;
         padding: 0;
         z-index: 10;
         pointer-events: none;
+        overflow: hidden;
       `;
       ascii.parentNode?.insertBefore(glitch, ascii.nextSibling);
 
@@ -79,9 +80,6 @@
         glitch.textContent = glitchLines.join("\n");
         glitch.style.opacity = String(0.3 + Math.random() * 0.5);
 
-        if (Math.random() < 0.3) {
-          glitch.style.transform = `translate(${(Math.random() - 0.5) * 3}px, ${(Math.random() - 0.5) * 2}px)`;
-        }
         if (frame > maxFrames - 3) {
           glitch.style.opacity = String(0.1 * (maxFrames - frame));
         }
@@ -102,6 +100,7 @@
     user-select: none;
     position: relative;
     display: inline-block;
+    overflow: hidden;
   }
   .ascii-art {
     font-family: 'Gohu', monospace;
@@ -113,13 +112,15 @@
     letter-spacing: 0;
     -webkit-font-smoothing: none;
     display: block;
+    margin: 0;
+    padding: 0;
   }
   .ascii-glitch-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     color: var(--color-accent);
     opacity: 0;
     pointer-events: none;
@@ -127,6 +128,7 @@
     margin: 0;
     padding: 0;
     z-index: 10;
+    overflow: hidden;
   }
   .fg-white { color: #e0e0e0; }
   .fg-bright-white { color: #ffffff; }
