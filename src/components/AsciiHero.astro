@@ -37,6 +37,17 @@
       const glitch = document.createElement("pre");
       glitch.className = "ascii-art ascii-glitch-overlay";
       glitch.setAttribute("aria-hidden", "true");
+      glitch.style.cssText = `
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 0;
+        z-index: 10;
+        pointer-events: none;
+      `;
       ascii.parentNode?.insertBefore(glitch, ascii.nextSibling);
 
       let frame = 0;
