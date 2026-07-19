@@ -1,30 +1,20 @@
 ---
-const lines = [
-  "  ▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄   ▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄ ",
-  " ██████████ ███████████ ███▄ ████ ██████████  ██████████   ███████████   ██████████ ",
-  " ██▀▀▀▀▀█▀ ▀▀▀▀▀▀▀▀▀▀▀ ▀██▀▀▀▀▀▀ ██████████  ██▀▀▀▀▀▀██   ▀▀▀▀▀▀▀▀██▀  ██████████ ",
-  " ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
-  " ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄",
-  "  ▐███████████████▌  ██████████████████████▐██████████████████████████████████████▌",
-  "   ███████████████   ▀███████████████████▌  █████████████████████████████████████ ",
-  "   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
-];
 ---
 
 <div class="ascii-hero">
   <pre
     id="hero-ascii"
-    data-ascii-text={lines.join("\n")}
     class="ascii-art"
+    data-ascii-text=""
   >
-{lines.join("\n")}
-  </pre>
-  <pre
-    id="hero-ascii-glitch"
-    class="ascii-art ascii-glitch-overlay"
-    aria-hidden="true"
-  >
-{lines.join("\n")}
+<span class="fg-white bg-black">           </span><span class="fg-white bg-white">▓▄░</span><span class="fg-white bg-black">▀                                                         ▄</span><span class="fg-white bg-white">░</span><span class="fg-bright-white bg-black">██</span><span class="fg-white bg-white">▄▓</span><span class="fg-bright-white bg-black">▄</span><span class="fg-white bg-black">▄                                      ▄▄             </span>
+<span class="fg-white bg-black">  </span><span class="fg-bright-white bg-black">▄▄█</span><span class="fg-white bg-white">▄▓</span><span class="fg-bright-white bg-black">▄</span><span class="fg-white bg-black">▄  </span><span class="fg-bright-white bg-black">█████</span><span class="fg-white bg-white">▄▓</span><span class="fg-bright-white bg-black">▄</span><span class="fg-white bg-black">▄    </span><span class="fg-bright-white bg-black">▄▄█</span><span class="fg-white bg-white">▄▓</span><span class="fg-bright-white bg-black">▄</span><span class="fg-white bg-black">▄   ▄</span><span class="fg-bright-white bg-black">▄</span><span class="fg-white bg-black">▄    ▄▄    </span><span class="fg-bright-white bg-black">▄▄█</span><span class="fg-white bg-white">▄▓</span><span class="fg-bright-white bg-black">▄</span><span class="fg-white bg-black">▄  </span><span class="fg-white bg-white">▄</span><span class="fg-bright-white bg-black">▄██</span><span class="fg-white bg-white">▄▄▓</span><span class="fg-bright-white bg-black">▄</span><span class="fg-white bg-black">▄      ▐</span><span class="fg-bright-white bg-black">██</span><span class="fg-white bg-white">▀</span><span class="fg-white bg-black">  </span><span class="fg-bright-white bg-black">▀██</span><span class="fg-white bg-black">█   </span><span class="fg-bright-white bg-black">▄▄██</span><span class="fg-white bg-white">▄▓</span><span class="fg-bright-white bg-black">▄</span><span class="fg-white bg-black">▄   ▄</span><span class="fg-bright-white bg-black">▄</span><span class="fg-white bg-black">▄    ▄▄  </span><span class="fg-white bg-white">▓▓</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▄</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▄▓</span><span class="fg-bright-white bg-black">▄</span><span class="fg-white bg-black">▄  █▓</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-black">█   </span><span class="fg-bright-white bg-black">▄▄█</span><span class="fg-white bg-white">▄▓</span><span class="fg-bright-white bg-black">▄</span><span class="fg-white bg-black">▄  </span>
+<span class="fg-white bg-black"> </span><span class="fg-bright-white bg-black">██</span><span class="fg-white bg-white">▀</span><span class="fg-white bg-black">▀ </span><span class="fg-bright-white bg-black">▀█</span><span class="fg-white bg-white">▓░</span><span class="fg-white bg-black">▌</span><span class="fg-white bg-white">▀</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">░</span><span class="fg-white bg-black">   </span><span class="fg-bright-white bg-black">▀██</span><span class="fg-white bg-black">█  </span><span class="fg-bright-white bg-black">██</span><span class="fg-white bg-white">▀</span><span class="fg-white bg-black">▀ </span><span class="fg-bright-white bg-black">▀█</span><span class="fg-white bg-white">▓░</span><span class="fg-white bg-black">▌</span><span class="fg-white bg-white">▒▓</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▀</span><span class="fg-white bg-black">   </span><span class="fg-white bg-white">▄░▓</span><span class="fg-white bg-black">█  </span><span class="fg-bright-white bg-black">██</span><span class="fg-white bg-white">▀</span><span class="fg-white bg-black">▀ </span><span class="fg-bright-white bg-black">▀█</span><span class="fg-white bg-white">▓░</span><span class="fg-white bg-black">▌</span><span class="fg-bright-white bg-black">▀██</span><span class="fg-white bg-black">█  </span><span class="fg-bright-white bg-black">▀██</span><span class="fg-white bg-white">░</span><span class="fg-white bg-black">▌    </span><span class="fg-white bg-white">▒</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">░</span><span class="fg-white bg-black">▌   </span><span class="fg-white bg-white">▐▓░</span><span class="fg-white bg-black">▌ </span><span class="fg-white bg-white">▓</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▀</span><span class="fg-white bg-black">▀ ▀</span><span class="fg-white bg-white">▀</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▓</span><span class="fg-white bg-black">█ </span><span class="fg-white bg-white">▒▓</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▀</span><span class="fg-white bg-black">   </span><span class="fg-white bg-white">▄░▓</span><span class="fg-white bg-black">█ </span><span class="fg-white bg-white">▀</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">░</span><span class="fg-white bg-black">   </span><span class="fg-bright-white bg-black">▀██</span><span class="fg-white bg-black">▓ ▀▄▄▀  </span><span class="fg-bright-white bg-black">██</span><span class="fg-white bg-white">▀</span><span class="fg-white bg-black">▀ </span><span class="fg-bright-white bg-black">▀█</span><span class="fg-white bg-white">▓░</span><span class="fg-white bg-black">▌</span>
+<span class="fg-white bg-white">▄</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▓</span><span class="fg-bright-white bg-black">▄</span><span class="fg-white bg-black">    </span><span class="fg-bright-white bg-black">▀▀</span><span class="fg-white bg-black"> </span><span class="fg-white bg-white">▐▓▌</span><span class="fg-white bg-black">        </span><span class="fg-white bg-white">▄</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▓</span><span class="fg-white bg-black">▌   </span><span class="fg-white bg-white">▐▓▌</span><span class="fg-white bg-black">▌</span><span class="fg-bright-white bg-black">██</span><span class="fg-white bg-white">▌</span><span class="fg-white bg-black">▌   </span><span class="fg-white bg-white">░▐▓░</span><span class="fg-white bg-black">▌</span><span class="fg-white bg-white">▄</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▓</span><span class="fg-white bg-black">▌   </span><span class="fg-white bg-white">▐▓▌</span><span class="fg-white bg-black">▌ </span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▓░</span><span class="fg-white bg-black">   </span><span class="fg-white bg-white">▐▓▌</span><span class="fg-white bg-black">▌    </span><span class="fg-white bg-white">▐▓</span><span class="fg-bright-white bg-black">██</span><span class="fg-white bg-white">▒░</span><span class="fg-white bg-black">░ ▀▀ </span><span class="fg-bright-white bg-black">▐█</span><span class="fg-white bg-white">▌</span><span class="fg-white bg-black">▌    </span><span class="fg-white bg-white">▐▓░</span><span class="fg-white bg-black">▌</span><span class="fg-bright-white bg-black">██</span><span class="fg-white bg-white">▌</span><span class="fg-white bg-black">▌   </span><span class="fg-white bg-white">░▐▓░</span><span class="fg-white bg-black">▌</span><span class="fg-white bg-white">▐</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▌</span><span class="fg-white bg-black">    </span><span class="fg-white bg-white">▐▓▌</span><span class="fg-white bg-black">▌▐</span><span class="fg-white bg-white">▐▓▌</span><span class="fg-white bg-black"> </span><span class="fg-white bg-white">▄</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▓</span><span class="fg-white bg-black">▌   </span><span class="fg-white bg-white">▐▓▌</span><span class="fg-white bg-black">▌</span>
+<span class="fg-white bg-black">▀</span><span class="fg-bright-white bg-black">▀</span><span class="fg-white bg-white">▓▓▓▒░▒▄</span><span class="fg-white bg-black">▄ </span><span class="fg-white bg-white">░▀</span><span class="fg-white bg-black">▓░       </span><span class="fg-white bg-white">▐</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▌</span><span class="fg-white bg-black">   ▄</span><span class="fg-white bg-white">░▀</span><span class="fg-red bg-white">░</span><span class="fg-white bg-black">▀</span><span class="fg-white bg-white">░▓░</span><span class="fg-white bg-black">    </span><span class="fg-white bg-white">▒▒▓▒</span><span class="fg-white bg-black">▌</span><span class="fg-white bg-white">▐</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▌</span><span class="fg-white bg-black">   ▄</span><span class="fg-white bg-white">░▀</span><span class="fg-red bg-white">░</span><span class="fg-white bg-black">▀ </span><span class="fg-bright-white bg-black">██</span><span class="fg-white bg-white">▌</span><span class="fg-white bg-black">   </span><span class="fg-white bg-white">▐▀</span><span class="fg-red bg-white">░</span><span class="fg-white bg-black">▌    </span><span class="fg-white bg-white">░▀░</span><span class="fg-white bg-black">▀       </span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▓░</span><span class="fg-white bg-black">░    </span><span class="fg-white bg-white">▐▓▒</span><span class="fg-white bg-black">▌</span><span class="fg-white bg-white">░▓░</span><span class="fg-white bg-black">   ▐</span><span class="fg-white bg-white">▒▒▓▒</span><span class="fg-white bg-black">▌▀</span><span class="fg-white bg-white">▀</span><span class="fg-white bg-black">▓░   </span><span class="fg-white bg-white">░▀</span><span class="fg-red bg-white">░</span><span class="fg-white bg-black"> ░▓</span><span class="fg-white bg-white">▀░</span><span class="fg-white bg-black">▌</span><span class="fg-white bg-white">▐</span><span class="fg-bright-white bg-black">█</span><span class="fg-white bg-white">▌</span><span class="fg-white bg-black">   ▄</span><span class="fg-white bg-white">░▀</span><span class="fg-red bg-white">░</span><span class="fg-white bg-black">▀</span>
+<span class="fg-white bg-black"> ▄▄▄   ▀</span><span class="fg-white bg-white">░░</span><span class="fg-white bg-black">▌██▄▌   ▐</span><span class="fg-white bg-white">▀</span><span class="fg-white bg-black">█▌</span><span class="fg-white bg-white">░▀</span><span class="fg-white bg-black">██▓▀▀▀▀  ▐</span><span class="fg-white bg-white">▀</span><span class="fg-white bg-black">▀▌  ▐</span><span class="fg-white bg-white">░▒▓</span><span class="fg-white bg-black">█ </span><span class="fg-white bg-white">░▀</span><span class="fg-white bg-black">██▓▀▀▀▀  ░█</span><span class="fg-white bg-white">▀</span><span class="fg-white bg-black">▀▌  ▐█▄▌    </span><span class="fg-white bg-white">▒</span><span class="fg-white bg-black">█</span><span class="fg-white bg-white">▒</span><span class="fg-white bg-black">        ▐</span><span class="fg-white bg-white">▀</span><span class="fg-white bg-black">▀▌   </span><span class="fg-white bg-white">░▒▓</span><span class="fg-white bg-black">█ █</span><span class="fg-white bg-white">▀</span><span class="fg-white bg-black">█   █</span><span class="fg-white bg-white">░▒▓</span><span class="fg-white bg-black">█▌█</span><span class="fg-white bg-white">░░</span><span class="fg-white bg-black">▌  ▀▀▓▌ ▐▄██ </span><span class="fg-white bg-white">░▀</span><span class="fg-white bg-black">██▓▀▀▀▀  </span>
+<span class="fg-white bg-black">▀█</span><span class="fg-white bg-white">░░</span><span class="fg-white bg-black">█▄▄█</span><span class="fg-white bg-white">░</span><span class="fg-white bg-black">▌█ ▀█</span><span class="fg-white bg-white">░░</span><span class="fg-white bg-black">▄▄█▄</span><span class="fg-red bg-white">░</span><span class="fg-white bg-black">▀▀█</span><span class="fg-white bg-white">░░</span><span class="fg-white bg-black">▄▄▄</span><span class="fg-white bg-white">░</span><span class="fg-white bg-black">▀▌  █</span><span class="fg-white bg-white">░░</span><span class="fg-white bg-black">▄▄██</span><span class="fg-white bg-white">░</span><span class="fg-white bg-black">▀  ▀█</span><span class="fg-white bg-white">░░</span><span class="fg-white bg-black">▄▄▄</span><span class="fg-white bg-white">░</span><span class="fg-white bg-black">▀▌  ▀</span><span class="fg-white bg-white">░</span><span class="fg-white bg-black">▓▀  █</span><span class="fg-white bg-white">░░</span><span class="fg-white bg-black">     </span><span class="fg-white bg-white">░</span><span class="fg-white bg-black">▄█         █</span><span class="fg-white bg-white">░░</span><span class="fg-white bg-black">▄▄██</span><span class="fg-white bg-white">░</span><span class="fg-white bg-black">▀  ▐▀</span><span class="fg-white bg-white">░░</span><span class="fg-white bg-black">▄██▀</span><span class="fg-white bg-white">░</span><span class="fg-white bg-black">█▀ ▀▐▓▀       </span><span class="fg-white bg-white">░░</span><span class="fg-white bg-black">█▌ ▀█</span><span class="fg-white bg-white">░░</span><span class="fg-white bg-black">▄▄▄</span><span class="fg-white bg-white">░</span><span class="fg-white bg-black">▀▌ </span>
+<span class="fg-white bg-black">  ▀▀▓██▀▄▀     ▀▀▌▓▀    ▀▀▓█▀▀     ▀▀</span><span class="fg-red bg-white">░</span><span class="fg-white bg-black">▓▒▀      ▀▀▓█▀▀         █▀▀                   ▀▀</span><span class="fg-red bg-white">░</span><span class="fg-white bg-black">▓▐▀     ▀██</span><span class="fg-red bg-white">░</span><span class="fg-white bg-black">▐▒▀▀               ▀▀    ▀▀▓█▀▀   </span>
   </pre>
   <p class="tagline">
     s y s t e m s . d e p l o y m e n t . i n f r a s t r u c t u r e
@@ -33,16 +23,21 @@ const lines = [
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const ascii = document.getElementById("hero-ascii") as HTMLPreElement | null;
-    const glitch = document.getElementById("hero-ascii-glitch") as HTMLPreElement | null;
-    if (!ascii || !glitch) return;
+    const ascii = document.getElementById("hero-ascii");
+    if (!ascii) return;
 
     let timeout: ReturnType<typeof setTimeout>;
 
     function glitchBurst() {
       const chars = "!@#$%^&*()_+-=[]{}|;':\",./<>?ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789█▓▒░│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌";
-      const text = ascii.dataset.asciiText || ascii.textContent || "";
-      const lines = text.split("\n");
+
+      const lines = ascii.textContent?.split("\n") || [];
+      if (!lines.length) return;
+
+      const glitch = document.createElement("pre");
+      glitch.className = "ascii-art ascii-glitch-overlay";
+      glitch.setAttribute("aria-hidden", "true");
+      ascii.parentNode?.insertBefore(glitch, ascii.nextSibling);
 
       let frame = 0;
       const maxFrames = 6 + Math.floor(Math.random() * 6);
@@ -50,15 +45,12 @@ const lines = [
       const interval = setInterval(() => {
         if (frame >= maxFrames) {
           clearInterval(interval);
-          glitch.style.opacity = "0";
-          glitch.textContent = ascii.textContent;
+          glitch.remove();
           return;
         }
 
-        const baseLines = frame === 0 ? ascii.dataset.asciiText?.split("\n") || lines : lines;
-        const glitchLines = [...baseLines];
+        const glitchLines = [...lines];
         const numZones = 1 + Math.floor(Math.random() * 2);
-
         for (let z = 0; z < numZones; z++) {
           const row = Math.floor(Math.random() * glitchLines.length);
           const lineStr = glitchLines[row];
@@ -97,6 +89,7 @@ const lines = [
   .ascii-hero {
     margin-bottom: 1rem;
     user-select: none;
+    position: relative;
   }
   .ascii-art {
     font-family: 'Gohu', monospace;
@@ -106,15 +99,22 @@ const lines = [
     white-space: pre;
     overflow: hidden;
     letter-spacing: 0;
+    -webkit-font-smoothing: none;
   }
   .ascii-glitch-overlay {
     position: absolute;
     top: 0;
     left: 0;
+    color: var(--color-accent);
     opacity: 0;
     pointer-events: none;
     text-shadow: 0.5px 0 #cc6666, -0.5px 0 #93ffd7;
   }
+  .fg-white { color: #e0e0e0; }
+  .fg-bright-white { color: #ffffff; }
+  .fg-red { color: #cc6666; }
+  .bg-black { background-color: #0a0b0e; }
+  .bg-white { background-color: #e0e0e0; }
   .tagline {
     text-align: center;
     color: var(--color-fg-dim);
