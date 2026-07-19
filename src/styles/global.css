@@ -14,16 +14,8 @@
   --color-border: #1a1b20;
   --color-border-light: #2a2b30;
 
-  --font-mono: 'Courier New', 'Liberation Mono', 'Consolas', monospace;
+  --font-mono: 'IBM Plex Mono', 'Courier New', 'Consolas', monospace;
   --font-pixel: 'Courier New', monospace;
-}
-
-@font-face {
-  font-family: 'Departure Mono';
-  src: url('https://raw.githubusercontent.com/ntwigs/Departure-Mono/refs/heads/main/DepartureMono-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
 }
 
 * {
@@ -38,7 +30,7 @@ html {
 }
 
 body {
-  font-family: 'Departure Mono', var(--font-mono);
+  font-family: 'IBM Plex Mono', var(--font-mono);
   font-size: 14px;
   line-height: 1.6;
   background: var(--color-bg);

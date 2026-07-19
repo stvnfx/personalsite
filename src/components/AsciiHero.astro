@@ -10,62 +10,40 @@ const lines = [
   "   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
 ];
 
-const taglines = [
-  "s y s t e m s . d e p l o y m e n t . i n f r a s t r u c t u r e",
-  "j a v a   &   d e v o p s   ,   m o s t l y",
-  "s p r i n g   b o o t   +   k u b e r n e t e s   +   c i / c d",
-];
-
-const tagline = taglines[Math.floor(Math.random() * taglines.length)];
+const tagline = "s y s t e m s . d e p l o y m e n t . i n f r a s t r u c t u r e";
 ---
 
 <div class="ascii-hero">
   <pre
     id="hero-ascii"
-    class="ascii-block"
-    style="color: var(--color-accent); overflow: hidden;"
+    data-ascii-text={lines.join("\n")}
   >
 {lines.join("\n")}
   </pre>
   <pre
     id="hero-ascii-glitch"
-    class="ascii-block glitch-overlay"
+    class="ascii-glitch"
     aria-hidden="true"
-    style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      color: var(--color-accent);
-      opacity: 0;
-      pointer-events: none;
-      overflow: hidden;
-    "
   >
 {lines.join("\n")}
   </pre>
-  <p class="tagline" style="
-    text-align: center;
-    color: var(--color-fg-dim);
-    font-size: 12px;
-    letter-spacing: 2px;
-    margin-top: 0.5rem;
-  ">
+  <p class="tagline">
     {tagline}
   </p>
 </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const ascii = document.getElementById("hero-ascii");
-    const glitch = document.getElementById("hero-ascii-glitch");
+    const ascii = document.getElementById("hero-ascii") as HTMLPreElement | null;
+    const glitch = document.getElementById("hero-ascii-glitch") as HTMLPreElement | null;
     if (!ascii || !glitch) return;
 
     let timeout: ReturnType<typeof setTimeout>;
 
     function glitchBurst() {
       const chars = "!@#$%^&*()_+-=[]{}|;':\",./<>?ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789█▓▒░│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌";
-      const lineText = ascii.textContent || "";
-      const lines = lineText.split("\n");
+      const text = ascii.dataset.asciiText || ascii.textContent || "";
+      const lines = text.split("\n");
       const originalLines = [...lines];
 
       let frame = 0;
@@ -115,9 +93,44 @@ const tagline = taglines[Math.floor(Math.random() * taglines.length)];
 </script>
 
 <style>
-  .glitch-overlay {
-    text-shadow:
-      0.5px 0 #cc6666,
-      -0.5px 0 #93ffd7;
+  .ascii-hero {
+    position: relative;
+    margin-bottom: 1rem;
+    user-select: none;
+  }
+  #hero-ascii, #hero-ascii-glitch {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1;
+    color: var(--color-accent);
+    white-space: pre;
+    overflow: hidden;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+    letter-spacing: 0;
+  }
+  #hero-ascii-glitch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--color-accent);
+    opacity: 0;
+    pointer-events: none;
+    text-shadow: 0.5px 0 #cc6666, -0.5px 0 #93ffd7;
+  }
+  .tagline {
+    text-align: center;
+    color: var(--color-fg-dim);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-top: 0.25rem;
+  }
+  @media (max-width: 700px) {
+    #hero-ascii, #hero-ascii-glitch {
+      font-size: 5.5px;
+    }
+    .tagline {
+      font-size: 9px;
+    }
   }
 </style>
