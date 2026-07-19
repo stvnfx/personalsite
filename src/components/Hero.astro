@@ -1,33 +1,92 @@
 ---
-
 ---
 
-<section id="home" class="pt-32 pb-20 px-6">
-  <div class="max-w-6xl mx-auto">
-    <div class="max-w-3xl">
-      <p class="text-rust font-mono text-sm uppercase tracking-wider mb-6">
-        Java / DevOps / Platform Engineering
+<section id="top" class="section-box">
+  <div class="section-inner">
+    <p class="prompt-line">
+      <span class="prompt-symbol">$</span> cat /home/steven/about.txt
+    </p>
+
+    <div class="terminal-box">
+      <p>
+        Java and DevOps engineer. I write code that ships, set up infrastructure that stays up, and keep pipelines from falling over.
       </p>
-      <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-ink leading-[1.1] mb-8">
-        Building systems<br />that hold together.
-      </h1>
-      <p class="text-lg text-ink-light leading-relaxed mb-10 max-w-xl">
-        I write Java, set up infrastructure, and keep deployments running. Currently based in Breda, working on government software.
+      <p>
+        Based in Breda, Netherlands. Working on citizen services at Pinkroccade. Before that I built healthcare systems, warehouse platforms, and automotive after-sales tools across South Africa, Germany, and the UK.
       </p>
-      <div class="flex items-center gap-4">
-        <a
-          href="#experience"
-          class="inline-flex items-center px-6 py-3 bg-rust text-white text-sm font-medium rounded hover:bg-rust-dark transition-colors duration-200"
-        >
-          View work
-        </a>
-        <a
-          href="#contact"
-          class="inline-flex items-center px-6 py-3 text-ink text-sm font-medium border border-border rounded hover:border-ink transition-colors duration-200"
-        >
-          Get in touch
-        </a>
-      </div>
+      <p>
+        <span class="label">stack:</span> Java 17/21/25 &middot; Spring Boot &middot; Kubernetes &middot; Terraform &middot; PostgreSQL<br />
+        <span class="label">ci/cd:</span> GitLab CI &middot; TeamCity &middot; Jenkins &middot; ArgoCD<br />
+        <span class="label">cloud:</span> AWS &middot; Azure<br />
+        <span class="label">monitoring:</span> Grafana &middot; Prometheus &middot; ELK
+      </p>
+    </div>
+
+    <div class="btn-row">
+      <a href="#experience" class="btn">view experience</a>
+      <a href="#contact" class="btn btn-alt">get in touch</a>
     </div>
   </div>
 </section>
+
+<style>
+  .section-box {
+    padding: 5rem 1rem 2rem;
+  }
+  .section-inner {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+  .prompt-line {
+    color: var(--color-fg-dim);
+    font-size: 12px;
+    margin-bottom: 0.75rem;
+  }
+  .prompt-symbol {
+    color: var(--color-accent);
+  }
+  .terminal-box {
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-alt);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .terminal-box p {
+    margin: 0 0 0.5rem;
+    line-height: 1.6;
+  }
+  .terminal-box p:last-child {
+    margin-bottom: 0;
+  }
+  .label {
+    color: var(--color-accent);
+  }
+  .btn-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .btn:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+  .btn-alt {
+    border-color: var(--color-border-light);
+    color: var(--color-fg-dim);
+  }
+  .btn-alt:hover {
+    border-color: var(--color-fg);
+    background: transparent;
+    color: var(--color-fg);
+  }
+</style>

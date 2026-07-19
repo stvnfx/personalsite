@@ -1,0 +1,123 @@
+---
+const lines = [
+  "  ▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ ▄▄▄   ▄▄▄▄ ▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄ ",
+  " ██████████ ███████████ ███▄ ████ ██████████  ██████████   ███████████   ██████████ ",
+  " ██▀▀▀▀▀█▀ ▀▀▀▀▀▀▀▀▀▀▀ ▀██▀▀▀▀▀▀ ██████████  ██▀▀▀▀▀▀██   ▀▀▀▀▀▀▀▀██▀  ██████████ ",
+  " ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
+  " ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄",
+  "  ▐███████████████▌  ██████████████████████▐██████████████████████████████████████▌",
+  "   ███████████████   ▀███████████████████▌  █████████████████████████████████████ ",
+  "   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀",
+];
+
+const taglines = [
+  "s y s t e m s . d e p l o y m e n t . i n f r a s t r u c t u r e",
+  "j a v a   &   d e v o p s   ,   m o s t l y",
+  "s p r i n g   b o o t   +   k u b e r n e t e s   +   c i / c d",
+];
+
+const tagline = taglines[Math.floor(Math.random() * taglines.length)];
+---
+
+<div class="ascii-hero">
+  <pre
+    id="hero-ascii"
+    class="ascii-block"
+    style="color: var(--color-accent); overflow: hidden;"
+  >
+{lines.join("\n")}
+  </pre>
+  <pre
+    id="hero-ascii-glitch"
+    class="ascii-block glitch-overlay"
+    aria-hidden="true"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: var(--color-accent);
+      opacity: 0;
+      pointer-events: none;
+      overflow: hidden;
+    "
+  >
+{lines.join("\n")}
+  </pre>
+  <p class="tagline" style="
+    text-align: center;
+    color: var(--color-fg-dim);
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-top: 0.5rem;
+  ">
+    {tagline}
+  </p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const ascii = document.getElementById("hero-ascii");
+    const glitch = document.getElementById("hero-ascii-glitch");
+    if (!ascii || !glitch) return;
+
+    let timeout: ReturnType<typeof setTimeout>;
+
+    function glitchBurst() {
+      const chars = "!@#$%^&*()_+-=[]{}|;':\",./<>?ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789█▓▒░│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌";
+      const lineText = ascii.textContent || "";
+      const lines = lineText.split("\n");
+      const originalLines = [...lines];
+
+      let frame = 0;
+      const maxFrames = 6 + Math.floor(Math.random() * 6);
+      const interval = setInterval(() => {
+        if (frame >= maxFrames) {
+          clearInterval(interval);
+          glitch.style.opacity = "0";
+          glitch.textContent = ascii.textContent;
+          return;
+        }
+
+        const glitchLines = [...originalLines];
+        const numZones = 1 + Math.floor(Math.random() * 2);
+        for (let z = 0; z < numZones; z++) {
+          const row = Math.floor(Math.random() * glitchLines.length);
+          const lineStr = glitchLines[row];
+          if (!lineStr) continue;
+
+          const start = Math.floor(Math.random() * lineStr.length);
+          const len = 2 + Math.floor(Math.random() * 12);
+          const mutated = lineStr.slice(0, start) +
+            Array.from({ length: len }, () => chars[Math.floor(Math.random() * chars.length)]).join("") +
+            lineStr.slice(start + len);
+
+          glitchLines[row] = mutated;
+        }
+
+        glitch.textContent = glitchLines.join("\n");
+        glitch.style.opacity = String(0.3 + Math.random() * 0.5);
+
+        if (Math.random() < 0.3) {
+          glitch.style.transform = `translate(${(Math.random() - 0.5) * 3}px, ${(Math.random() - 0.5) * 2}px)`;
+        }
+        if (frame > maxFrames - 3) {
+          glitch.style.opacity = String(0.1 * (maxFrames - frame));
+        }
+
+        frame++;
+      }, 40 + Math.random() * 60);
+
+      timeout = setTimeout(glitchBurst, 2000 + Math.random() * 6000);
+    }
+
+    setTimeout(glitchBurst, 1500);
+  });
+</script>
+
+<style>
+  .glitch-overlay {
+    text-shadow:
+      0.5px 0 #cc6666,
+      -0.5px 0 #93ffd7;
+  }
+</style>

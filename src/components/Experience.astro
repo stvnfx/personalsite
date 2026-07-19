@@ -4,40 +4,40 @@ const jobs = [
     company: "Pinkroccade Local Government",
     role: "Senior Software Developer",
     location: "'s-Hertogenbosch, NL",
-    period: "Jan 2026 - Present",
-    description: "Working on the iBurgerzaken platform. Building features and fixing integrations between Blueriq and the Core Java platform.",
-    tech: ["Java 17/21/25", "Spring Boot", "Kubernetes", "PostgreSQL", "GitLab CI/CD"],
+    period: "2026-01 - Present",
+    description: "iBurgerzaken platform. Feature development and Blueriq-Core Java integration fixes.",
+    tech: ["Java 17,21,25", "Spring Boot", "Kubernetes", "PostgreSQL", "GitLab CI/CD"],
   },
   {
     company: "Interfile",
     role: "Senior Software Developer",
     location: "Fourways, ZA",
-    period: "Jan 2023 - Jan 2024",
-    description: "Government services work. Part of the modernisation team migrating old Java EE systems to Spring Boot and React. Also trained junior developers.",
+    period: "2023-01 - 2024-01",
+    description: "Government services. Modernisation team migrating Java EE to Spring Boot and React. Trainer for junior developers.",
     tech: ["Java EE", "Spring Boot", "Kubernetes", "PrimeFaces", "MSSQL"],
   },
   {
     company: "Acrontum",
     role: "Senior Software Developer",
     location: "Munich, DE",
-    period: "Jan 2023 - Jan 2024",
-    description: "Contracted to BMW for the AOS2 (After Sale Service) team. Built backend services with Quarkus.",
+    period: "2023-01 - 2024-01",
+    description: "Contracted to BMW for the AOS2 (After Sale Service) team. Backend services with Quarkus.",
     tech: ["Java", "Quarkus", "Kubernetes", "NodeJS"],
   },
   {
     company: "Marketplace Superheroes",
     role: "Senior Developer / Team Lead",
     location: "Wrexham, UK",
-    period: "Sep 2021 - Dec 2022",
-    description: "Led a team on a warehousing platform. Handled infrastructure, CI/CD pipelines, and built internal monitoring dashboards.",
+    period: "2021-09 - 2022-12",
+    description: "Led team on warehousing platform. Infrastructure, CI/CD, internal monitoring dashboards.",
     tech: ["Java", "Spring Boot", "AWS", "Terraform", "Ansible", "Grafana"],
   },
   {
     company: "Qode Healthcare",
     role: "Senior Software Developer",
     location: "Pretoria, ZA",
-    period: "Mar 2018 - Sep 2021",
-    description: "Backend work for public and private healthcare. Led the public healthcare division. Built iOS apps and internal HR tools.",
+    period: "2018-03 - 2021-09",
+    description: "Backend for public and private healthcare. Led public healthcare division. iOS apps and internal HR tools.",
     tech: ["Java", "Spring Boot", "Azure", "Swift", "Kubernetes"],
   },
   {
@@ -45,58 +45,71 @@ const jobs = [
     role: "Software Developer",
     location: "Midrand, ZA",
     period: "2015 - 2018",
-    description: "Access control and security software. Built Java EE backends, managed servers, and handled disaster recovery.",
+    description: "Access control and security. Java EE backends, server management, disaster recovery.",
     tech: ["Java EE", "Spring", "Docker", "Apache NiFi", "Ansible"],
   },
 ];
 ---
 
-<section id="experience" class="py-20 px-6 border-t border-border">
-  <div class="max-w-6xl mx-auto">
-    <p class="text-rust font-mono text-sm uppercase tracking-wider mb-4">
-      Experience
+<section id="experience" class="section-box">
+  <div class="section-inner">
+    <p class="prompt-line">
+      <span class="prompt-symbol">$</span> cat /var/log/employment.history
     </p>
-    <div class="flex items-baseline justify-between mb-12">
-      <h2 class="font-serif text-4xl md:text-5xl font-bold text-ink">
-        Where I have worked.
-      </h2>
-    </div>
-    <div class="space-y-0">
-      {jobs.map((job, i) => (
-        <div class:list={[
-          "py-8",
-          i !== jobs.length - 1 && "border-b border-border",
-        ]}>
-          <div class="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8">
-            <div class="text-sm text-ink-muted">
-              {job.period}
-            </div>
-            <div>
-              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
-                <h3 class="font-serif text-xl font-semibold text-ink">
-                  {job.company}
-                </h3>
-                <span class="text-sm text-ink-muted">
-                  {job.role}
-                </span>
-              </div>
-              <p class="text-sm text-ink-muted mb-3">
-                {job.location}
-              </p>
-              <p class="text-ink-light text-sm leading-relaxed mb-4">
-                {job.description}
-              </p>
-              <div class="flex flex-wrap gap-2">
-                {job.tech.map((t) => (
-                  <span class="text-xs px-2 py-1 bg-cream-dark text-ink-muted rounded">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+
+    {jobs.map((job) => (
+      <div class="terminal-box job-entry">
+        <div class="job-header">
+          <span class="job-date">[{job.period}]</span>
+          <span class="job-company">{job.company}</span>
+          <span class="job-role">&mdash; {job.role}</span>
         </div>
-      ))}
-    </div>
+        <p class="job-location">{job.location}</p>
+        <p>{job.description}</p>
+        <div class="tag-row">
+          {job.tech.map((t) => (
+            <span class="tag">{t}</span>
+          ))}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
+
+<style>
+  .job-entry {
+    margin-bottom: 0.75rem;
+  }
+  .job-header {
+    margin-bottom: 0.25rem;
+  }
+  .job-date {
+    color: var(--color-accent);
+    font-size: 12px;
+  }
+  .job-company {
+    color: var(--color-fg-bright);
+    font-weight: bold;
+  }
+  .job-role {
+    color: var(--color-fg-dim);
+    font-size: 12px;
+  }
+  .job-location {
+    color: var(--color-fg-dim);
+    font-size: 11px;
+    margin: 0 0 0.5rem;
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+  }
+  .tag {
+    font-size: 10px;
+    padding: 0.15rem 0.4rem;
+    border: 1px solid var(--color-border-light);
+    color: var(--color-fg-dim);
+  }
+</style>

@@ -1,51 +1,53 @@
 ---
 const skills = [
-  {
-    category: "Languages",
-    items: ["Java (17, 21, 25)", "TypeScript", "SQL", "Python", "Bash"],
-  },
-  {
-    category: "Frameworks",
-    items: ["Spring Boot", "Spring Batch", "Quarkus", "Java EE", "React", "NodeJS"],
-  },
-  {
-    category: "Infrastructure",
-    items: ["Kubernetes", "Docker", "AWS", "Azure", "Terraform", "Ansible"],
-  },
-  {
-    category: "Data & Messaging",
-    items: ["PostgreSQL", "MySQL", "MS SQL", "RabbitMQ", "IBM MQ"],
-  },
-  {
-    category: "Tooling",
-    items: ["GitLab CI/CD", "TeamCity", "Jenkins", "Grafana", "Prometheus"],
-  },
+  { category: "languages", items: ["Java (17, 21, 25)", "TypeScript", "SQL", "Python", "Bash"] },
+  { category: "frameworks", items: ["Spring Boot", "Spring Batch", "Quarkus", "Java EE", "React", "NodeJS"] },
+  { category: "infra", items: ["Kubernetes", "Docker", "AWS", "Azure", "Terraform", "Ansible"] },
+  { category: "data", items: ["PostgreSQL", "MySQL", "MS SQL", "RabbitMQ", "IBM MQ"] },
+  { category: "tooling", items: ["GitLab CI/CD", "TeamCity", "Jenkins", "Grafana", "Prometheus"] },
 ];
 ---
 
-<section class="py-20 px-6 border-t border-border bg-cream-dark/50">
-  <div class="max-w-6xl mx-auto">
-    <p class="text-rust font-mono text-sm uppercase tracking-wider mb-4">
-      Skills
+<section id="skills" class="section-box">
+  <div class="section-inner">
+    <p class="prompt-line">
+      <span class="prompt-symbol">$</span> ls -la /usr/local/skills/
     </p>
-    <h2 class="font-serif text-4xl md:text-5xl font-bold text-ink mb-12">
-      The usual suspects.
-    </h2>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="skills-grid">
       {skills.map((s) => (
-        <div>
-          <h3 class="font-mono text-sm text-ink-muted uppercase tracking-wider mb-3">
-            {s.category}
-          </h3>
-          <ul class="space-y-2">
-            {s.items.map((item) => (
-              <li class="text-ink-light text-sm">
-                {item}
-              </li>
-            ))}
-          </ul>
+        <div class="terminal-box skill-group">
+          <p class="skill-category">{s.category}/</p>
+          {s.items.map((item) => (
+            <p class="skill-item">{item}</p>
+          ))}
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+  }
+  .skill-group {
+    padding: 0.75rem 1rem;
+  }
+  .skill-category {
+    color: var(--color-warn);
+    font-size: 11px;
+    margin-bottom: 0.35rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .skill-item {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .skill-item::before {
+    content: "  ";
+  }
+</style>

@@ -4,17 +4,15 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
-  canonical?: string;
 }
 
 const {
   title,
-  description = "Steven Fourie - Java and DevOps Engineer based in Breda, Netherlands. Specializing in Spring Boot, Kubernetes, and CI/CD pipelines.",
-  canonical = "https://sf13.dev/",
+  description = "Steven Fourie - Java and DevOps Engineer. Systems, deployment, infrastructure.",
 } = Astro.props;
 
+const canonical = "https://sf13.dev/";
 const siteName = "Steven Fourie";
-const ogImage = `${canonical}og-image.png`;
 ---
 
 <!doctype html>
@@ -29,7 +27,7 @@ const ogImage = `${canonical}og-image.png`;
     <meta name="keywords" content="Java developer, DevOps engineer, Spring Boot, Kubernetes, CI/CD, platform engineering, Breda, Netherlands" />
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#FAF7F2" />
+    <meta name="theme-color" content="#0a0b0e" />
 
     <!-- Canonical -->
     <link rel="canonical" href={canonical} />
@@ -44,7 +42,7 @@ const ogImage = `${canonical}og-image.png`;
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={`${canonical}og-image.png`} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:locale" content="en_US" />
 
@@ -53,13 +51,8 @@ const ogImage = `${canonical}og-image.png`;
     <meta name="twitter:url" content={canonical} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={`${canonical}og-image.png`} />
     <meta name="twitter:creator" content="@stvnfx" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- Analytics -->
     <script defer src="https://u.sf13.dev/script.js" data-website-id="c761ef5d-857f-45fd-9e95-1ef5be85096e"></script>
@@ -88,14 +81,8 @@ const ogImage = `${canonical}og-image.png`;
       "knowsAbout": ["Java", "Spring Boot", "Kubernetes", "DevOps", "CI/CD", "Platform Engineering"]
     })} />
   </head>
-  <body class="min-h-screen bg-cream">
+  <body>
+    <div class="scanline-bar"></div>
     <slot />
   </body>
 </html>
-
-<style is:global>
-  :root {
-    --font-serif: 'Playfair Display', Georgia, serif;
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  }
-</style>
