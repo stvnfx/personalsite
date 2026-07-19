@@ -1,0 +1,26 @@
+---
+const navItems = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-border">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#home" class="font-serif text-xl font-semibold text-ink tracking-tight">
+      Steven Fourie
+    </a>
+    <div class="flex items-center gap-8">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="text-sm text-ink-light hover:text-ink transition-colors duration-200"
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>
