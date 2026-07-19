@@ -8,8 +8,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://stvnfx.github.io',
-  base: '/personalsite',
+  site: 'https://sf13.dev',
+  base: '/',
   integrations: [react(), sitemap()],
 
   vite: {
