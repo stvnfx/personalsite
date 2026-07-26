@@ -1,59 +1,76 @@
----
----
-
 <header class="nav-header">
   <nav class="nav-inner">
-    <a href="#top" class="nav-home">
-      <span style="color: var(--color-accent);">[</span>sf13<span style="color: var(--color-warn);">@</span>dev<span style="color: var(--color-accent);">]</span>&gt; _
-    </a>
+    <a href="#top" class="nav-home">Steven Fourie</a>
     <div class="nav-links">
       <a href="#about">about</a>
-      <a href="#experience">exp</a>
+      <a href="#experience">experience</a>
       <a href="#skills">skills</a>
       <a href="#contact">contact</a>
+      <span class="theme-toggle" id="theme-toggle" role="switch" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <div class="theme-toggle-slide"></div>
+        <div class="theme-toggle-switch"></div>
+      </span>
     </div>
   </nav>
 </header>
 
+<script is:inline>
+  (function() {
+    const toggle = document.getElementById('theme-toggle');
+    if (!toggle) return;
+    const html = document.documentElement;
+
+    function applyTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      toggle.setAttribute('aria-checked', theme === 'dark');
+    }
+
+    applyTheme(html.getAttribute('data-theme'));
+
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  })();
+</script>
+
 <style>
   .nav-header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
     z-index: 100;
-    background: rgba(10, 11, 14, 0.92);
-    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-ui);
+    padding: 0.75rem 0;
+    margin-bottom: 2rem;
   }
   .nav-inner {
-    max-width: 56rem;
-    margin: 0 auto;
-    padding: 0 1rem;
-    height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 13px;
   }
   .nav-home {
-    color: var(--color-fg);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-tx);
   }
   .nav-home:hover {
-    background: transparent;
-    color: var(--color-accent);
+    text-decoration: none;
+    color: var(--color-cy);
   }
   .nav-links {
     display: flex;
+    align-items: center;
     gap: 1.25rem;
   }
   .nav-links a {
-    color: var(--color-fg-dim);
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    color: var(--color-tx-2);
+    font-size: 14px;
   }
   .nav-links a:hover {
-    color: var(--color-accent);
-    background: transparent;
+    color: var(--color-tx);
+    text-decoration: none;
   }
+
 </style>

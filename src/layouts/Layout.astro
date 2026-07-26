@@ -27,7 +27,6 @@ const siteName = "Steven Fourie";
     <meta name="keywords" content="Java developer, DevOps engineer, Spring Boot, Kubernetes, CI/CD, platform engineering, Breda, Netherlands" />
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#0a0b0e" />
 
     <!-- Canonical -->
     <link rel="canonical" href={canonical} />
@@ -57,7 +56,7 @@ const siteName = "Steven Fourie";
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
     <!-- Analytics -->
     <script defer src="https://u.sf13.dev/script.js" data-website-id="c761ef5d-857f-45fd-9e95-1ef5be85096e"></script>
@@ -85,9 +84,17 @@ const siteName = "Steven Fourie";
       ],
       "knowsAbout": ["Java", "Spring Boot", "Kubernetes", "DevOps", "CI/CD", "Platform Engineering"]
     })} />
+
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
   </head>
   <body>
-    <div class="scanline-bar"></div>
     <slot />
   </body>
 </html>

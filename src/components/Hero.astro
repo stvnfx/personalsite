@@ -1,68 +1,28 @@
----
----
-
-<section id="top" class="section-box">
-  <div class="section-inner">
-    <p class="prompt-line">
-      <span class="prompt-symbol">$</span> cat /home/steven/about.txt
-    </p>
-
-    <div class="terminal-box">
-      <p>
-        Java and DevOps engineer. I write code that ships, set up infrastructure that stays up, and keep pipelines from falling over.
-      </p>
-      <p>
-        Based in Breda, Netherlands. Working on citizen services at Pinkroccade. Before that I built healthcare systems, warehouse platforms, and automotive after-sales tools across South Africa, Germany, and the UK.
-      </p>
-      <p>
-        <span class="label">stack:</span> Java 17/21/25 &middot; Spring Boot &middot; Kubernetes &middot; Terraform &middot; PostgreSQL<br />
-        <span class="label">ci/cd:</span> GitLab CI &middot; TeamCity &middot; Jenkins &middot; ArgoCD<br />
-        <span class="label">cloud:</span> AWS &middot; Azure<br />
-        <span class="label">monitoring:</span> Grafana &middot; Prometheus &middot; ELK
-      </p>
-    </div>
-
-    <div class="btn-row">
-      <a href="#experience" class="btn">view experience</a>
-      <a href="#contact" class="btn btn-alt">get in touch</a>
-    </div>
+<section id="about" class="section">
+  <h2>About</h2>
+  <p>
+    Java and DevOps engineer. I write code that ships, set up infrastructure that stays up, and keep pipelines from falling over.
+  </p>
+  <p>
+    Based in Breda, Netherlands. Working on citizen services at Pinkroccade. Before that I built healthcare systems, warehouse platforms, and automotive after-sales tools across South Africa, Germany, and the UK.
+  </p>
+  <p>
+    <span class="label">stack:</span> Java 17/21/25 &middot; Spring Boot &middot; Kubernetes &middot; Terraform &middot; PostgreSQL<br />
+    <span class="label">ci/cd:</span> GitLab CI &middot; TeamCity &middot; Jenkins &middot; ArgoCD<br />
+    <span class="label">cloud:</span> AWS &middot; Azure<br />
+    <span class="label">monitoring:</span> Grafana &middot; Prometheus &middot; ELK
+  </p>
+  <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem;">
+    <a href="#experience" class="btn btn-primary">view experience</a>
+    <a href="#contact" class="btn">get in touch</a>
   </div>
 </section>
 
 <style>
-  .terminal-box p {
-    margin: 0 0 0.5rem;
-    line-height: 1.6;
-  }
-  .terminal-box p:last-child {
-    margin-bottom: 0;
-  }
-  .btn-row {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
-  .btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--color-accent);
-    color: var(--color-accent);
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-  }
-  .btn:hover {
-    background: var(--color-accent);
-    color: var(--color-bg);
-  }
-  .btn-alt {
-    border-color: var(--color-border-light);
-    color: var(--color-fg-dim);
-  }
-  .btn-alt:hover {
-    border-color: var(--color-fg);
-    background: transparent;
-    color: var(--color-fg);
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-tx);
+    margin-bottom: 1rem;
   }
 </style>

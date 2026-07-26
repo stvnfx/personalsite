@@ -8,46 +8,49 @@ const skills = [
 ];
 ---
 
-<section id="skills" class="section-box">
-  <div class="section-inner">
-    <p class="prompt-line">
-      <span class="prompt-symbol">$</span> ls -la /usr/local/skills/
-    </p>
-    <div class="skills-grid">
-      {skills.map((s) => (
-        <div class="terminal-box skill-group">
-          <p class="skill-category">{s.category}/</p>
-          {s.items.map((item) => (
-            <p class="skill-item">{item}</p>
-          ))}
-        </div>
-      ))}
-    </div>
+<section id="skills" class="section">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    {skills.map((s) => (
+      <div class="skill-group">
+        <p class="skill-category">{s.category}</p>
+        {s.items.map((item) => (
+          <p class="skill-item">{item}</p>
+        ))}
+      </div>
+    ))}
   </div>
 </section>
 
 <style>
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-tx);
+    margin-bottom: 1.25rem;
+  }
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 0.75rem;
+    gap: 1.25rem;
   }
   .skill-group {
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 0;
   }
   .skill-category {
-    color: var(--color-warn);
-    font-size: 11px;
-    margin-bottom: 0.35rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    color: var(--color-tx);
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 0.5rem;
   }
   .skill-item {
     margin: 0;
-    font-size: 13px;
-    line-height: 1.7;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-tx-2);
   }
   .skill-item::before {
-    content: "  ";
+    content: "\2014\00a0";
+    color: var(--color-tx-3);
   }
 </style>
